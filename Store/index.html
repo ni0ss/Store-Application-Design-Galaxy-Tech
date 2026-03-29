@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galaxy Tech | متجر الإلكترونيات</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ════════════════════ HEADER ════════════════════ -->
+  <header>
+    <div class="header-inner">
+
+      <a class="logo" href="#">
+        <div class="logo-icon">G</div>
+        <div>
+          <div class="logo-text">Galaxy Tech</div>
+          <div class="logo-sub" id="logo-sub">متجر الإلكترونيات</div>
+        </div>
+      </a>
+
+      <div class="header-actions">
+        <!-- Theme Toggle -->
+        <button class="theme-btn" id="theme-btn" onclick="toggleTheme()" title="تبديل المظهر">☀️</button>
+        <!-- Language Switch -->
+        <button class="lang-btn" id="lang-btn" onclick="toggleLang()">EN</button>
+        <!-- Cart -->
+        <button class="cart-btn" onclick="openCart()">
+          <span id="cart-icon">🛒</span>
+          <span id="cart-label">السلة</span>
+          <span class="cart-count" id="cart-count">0</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ════════════════════ HERO ════════════════════ -->
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-inner">
+      <div class="hero-badge" id="hero-badge">✦ أحدث المنتجات التقنية</div>
+      <h1>
+        <span class="line1" id="hero-line1">عالم التقنية</span>
+        <span class="line2" id="hero-line2">بين يديك</span>
+      </h1>
+      <p id="hero-desc">اكتشف أحدث الأجهزة الإلكترونية والهواتف الذكية والحواسيب بأسعار تنافسية</p>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num">200+</div><div class="stat-label" id="stat1">منتج متاح</div></div>
+        <div class="stat"><div class="stat-num">5</div><div class="stat-label" id="stat2">فئات متنوعة</div></div>
+        <div class="stat"><div class="stat-num">24/7</div><div class="stat-label" id="stat3">دعم فني</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════ MAIN ════════════════════ -->
+  <div class="main">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-title" id="sidebar-title">التصنيفات</div>
+      <div class="cat-list" id="cat-list"></div>
+    </aside>
+
+    <!-- Products -->
+    <div>
+      <div class="products-header">
+        <div>
+          <div class="products-title" id="products-title">كل المنتجات</div>
+          <div class="products-count" id="products-count"></div>
+        </div>
+        <select class="sort-select" id="sort-select" onchange="sortProducts()">
+          <option value="default"    id="sort-def">الترتيب الافتراضي</option>
+          <option value="price-asc"  id="sort-pasc">السعر: من الأقل</option>
+          <option value="price-desc" id="sort-pdesc">السعر: من الأعلى</option>
+          <option value="name"       id="sort-name">حسب الاسم</option>
+        </select>
+      </div>
+      <div class="products-grid" id="products-grid"></div>
+    </div>
+
+  </div>
+
+  <!-- ════════════════════ CART OVERLAY ════════════════════ -->
+  <div class="cart-overlay" id="cart-overlay" onclick="outsideClick(event)">
+    <div class="cart-panel" id="cart-panel">
+      <div class="cart-header">
+        <h2 id="cart-title">🛒 سلة التسوق</h2>
+        <button class="close-btn" onclick="closeCart()">✕</button>
+      </div>
+      <div class="cart-items" id="cart-items-list"></div>
+      <div class="cart-footer" id="cart-footer"></div>
+    </div>
+  </div>
+
+  <!-- ════════════════════ CHECKOUT MODAL ════════════════════ -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal">
+      <div class="modal-icon">🎉</div>
+      <h2 id="modal-title">تم الطلب بنجاح!</h2>
+      <p id="modal-desc">شكراً لتسوقك معنا. سيتم معالجة طلبك قريباً.</p>
+      <div class="order-summary-box" id="modal-summary"></div>
+      <button class="modal-close-btn" id="modal-btn" onclick="closeModal()">متابعة التسوق</button>
+    </div>
+  </div>
+
+  <!-- ════════════════════ TOAST ════════════════════ -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- JavaScript -->
+  <script src="app.js"></script>
+
+</body>
+</html>
